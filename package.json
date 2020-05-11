@@ -4,22 +4,27 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
-    "watch": "webpack --watch --progress",
-    "analyze": "source-map-explorer main.js",
-    "bundle-buddy": "bundle-buddy main.js.map"
+    "clean": "rm -rf ./build",
+    "deps:create-build": "mkdir -p ./build",
+    "deps:copy-static": "cp -r public/* build/",
+    "deps": "npm run clean && npm run deps:create-build && npm run deps:copy-static",
+    "build:webpack": "webpack -p",
+    "build": "npm run deps && npm run build:webpack",
+    "dev:server": "webpack-dev-server",
+    "dev": "npm run deps && webpack-dev-server",
+    "analyze:bundle": "source-map-explorer build/main.js",
+    "analyze": "npm run build && npm run analyze:bundle"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gauravchl/secure-wallet.git"
+    "url": "git+https://github.com/paulgreg/secure-wallet.git"
   },
   "author": "Gaurav Chikhale",
-  "license": "ISC",
+  "license": "(ISC OR GPL-2.0)",
   "bugs": {
-    "url": "https://github.com/gauravchl/secure-wallet/issues"
+    "url": "https://github.com/paulgreg/secure-wallet/issues"
   },
-  "homepage": "https://github.com/gauravchl/secure-wallet#readme",
+  "homepage": "https://github.com/paulgreg/secure-wallet#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "clipboard": "^1.7.1",
@@ -38,16 +43,16 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "bundle-buddy": "^0.1.1",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-transform-destructuring": "^7.9.5",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "redux-devtools": "^3.4.0",
     "source-map-explorer": "^1.3.3",
-    "webpack": "^2.6.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }

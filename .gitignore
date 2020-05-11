@@ -58,8 +58,8 @@ typings/
 # dotenv environment variables file
 .env
 
-
+# Mac Os
 .DS_Store
 
-# builded file
-main.js
+# output
+build

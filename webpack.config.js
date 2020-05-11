@@ -1,41 +1,33 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
-var SRC_DIR = path.resolve(__dirname, 'src');
-var ROOT_DIR = path.resolve(__dirname, '');
+const SRC_DIR = path.resolve(__dirname, 'src')
+const BUILD_DIR = path.resolve(__dirname, 'build')
 
 config = {
   entry: SRC_DIR + '/index.jsx',
   output: {
-    path: ROOT_DIR,
+    path: BUILD_DIR,
     filename: 'main.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js|\.jsx$/,
-        include: [SRC_DIR],
-        loader: 'babel-loader',
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        query: {
-          presets: [ 'es2015', 'react' ],
-          plugins: [ 'transform-es2015-destructuring', 'transform-object-rest-spread' ]
-        }
+        use: ['babel-loader'],
       },
     ],
   },
-  devtool: 'source-map',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-  ],
   resolve: {
-    modules: [ SRC_DIR, path.resolve('./node_modules') ]
+    extensions: ['*', '.js', '.jsx'],
+  },
+  devtool: 'source-map',
+  devServer: {
+    contentBase: BUILD_DIR,
+    compress: true,
+    port: 8080,
   },
 }
 
-module.exports = [config];
+module.exports = [config]
