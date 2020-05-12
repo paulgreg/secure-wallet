@@ -13,7 +13,7 @@ Cryptography advices are from the book [Practical Cryptography for Developers](h
  - [x] Upgrade webpack & babel (output in build directory)
  - [ ] remove react-tap-event-plugin (deprecated)
  - [ ] check random generation (https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues)
- - [ ] change scrypt to argon2id
+ - [ ] change scrypt to argon2id and use it to derivate key for AES
  - [ ] add an argon2 salt and store it in localstorage
  - [ ] upgrade libraries (react, etc)
  - [ ] check AES cipher parameters (CTR mode, random IV stored in localStorage)
