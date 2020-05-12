@@ -5,17 +5,18 @@ Forked from [gauravchl](https://github.com/gauravchl/secure-wallet) (thanks !)
 
 **TODO**
 
-[x] remove google analytics & google fonts
-[x] Upgrade webpack & babel (output in build directory)
-[] remove react-tap-event-plugin (deprecated)
-[] upgrade libraries
-[] remove unused deps about asymetric crypto which seems not needed (like elliptic, asn1, diffie-hellman, etc)
-[] save / load encrypted store to a server
-[] reactive service worker
-[] auto logout after X minutes
-[] allow user to change master password
-[] Toggle button to show password
-[] Show confirmation box before removing item
+ - [x] remove google analytics & google fonts
+ - [x] Upgrade webpack & babel (output in build directory)
+ - [] remove react-tap-event-plugin (deprecated)
+ - [] change scrypt to argon2id
+ - [] upgrade libraries
+ - [] remove unused deps about asymetric crypto which seems not needed (like elliptic, asn1, diffie-hellman, etc)
+ - [] save / load encrypted store to a server
+ - [] reactive service worker
+ - [] auto logout after X minutes
+ - [] allow user to change master password
+ - [] Toggle button to show password
+ - [] Show confirmation box before removing item
 
 **Specs**
 
