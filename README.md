@@ -1,22 +1,35 @@
-# secure wallet
+# Secure Wallet
 
 A PWA for password manager, works offline, uses local storage to store all data, built with react + redux + webpack.
-Forked from [gauravchl](https://github.com/gauravchl/secure-wallet) (thanks !)
+
+Project was forked from [gauravchl/secure-wallet](https://github.com/gauravchl/secure-wallet) by Gaurav Chikhale.
+
+Cryptography advices are from the book [Practical Cryptography for Developers](https://cryptobook.nakov.com/) by Svetlin Nakov.
+
 
 **TODO**
 
  - [x] remove google analytics & google fonts
  - [x] Upgrade webpack & babel (output in build directory)
- - [] remove react-tap-event-plugin (deprecated)
- - [] change scrypt to argon2id
- - [] upgrade libraries
- - [] remove unused deps about asymetric crypto which seems not needed (like elliptic, asn1, diffie-hellman, etc)
- - [] save / load encrypted store to a server
- - [] reactive service worker
- - [] auto logout after X minutes
- - [] allow user to change master password
- - [] Toggle button to show password
- - [] Show confirmation box before removing item
+ - [ ] remove react-tap-event-plugin (deprecated)
+ - [ ] check random generation (https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues)
+ - [ ] change scrypt to argon2id
+ - [ ] add an argon2 salt and store it in localstorage
+ - [ ] upgrade libraries (react, etc)
+ - [ ] check AES cipher parameters (CTR mode, random IV stored in localStorage)
+ - [ ] check if keys are emptied after logout
+ - [ ] generate and increment a version in localstorage
+ - [ ] generate an uuid stored in localstorage
+ - [ ] allow user to display the uuid
+ - [ ] save encrypted store to a server (by uuid and by version) on each change
+ - [ ] load encrypted store from server (by uuid and last version) at startup
+ - [ ] if no store, ask if create a new one or load from serveur by uuid
+ - [ ] remove unused deps about asymetric crypto which seems not needed (like elliptic, asn1, diffie-hellman, etc)
+ - [ ] reactive service worker
+ - [ ] auto logout after X minutes
+ - [ ] allow user to change master password
+ - [ ] Toggle button to show password
+ - [ ] Show confirmation box before removing item
 
 **Specs**
 
