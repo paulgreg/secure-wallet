@@ -11,7 +11,7 @@
     "build:webpack": "webpack -p",
     "build": "npm run deps && npm run build:webpack",
     "dev:server": "webpack-dev-server",
-    "dev": "npm run deps && webpack-dev-server",
+    "dev": "npm run deps && npm run dev:server",
     "analyze:bundle": "source-map-explorer build/main.js",
     "analyze": "npm run build && npm run analyze:bundle"
   },
